@@ -17,7 +17,7 @@ type MovieDetailPageProps = {
   params: { id: string };
 };
 
-export function generateMetadata({ params }: MovieDetailPageProps) {
+export async function generateMetadata({ params }: MovieDetailPageProps) {
   const media = movies.find((m) => m.id === params.id);
   if (!media) return { title: 'Media Not Found' };
   return {
@@ -26,7 +26,7 @@ export function generateMetadata({ params }: MovieDetailPageProps) {
   };
 }
 
-export default function MovieDetailPage({ params }: MovieDetailPageProps) {
+export default async function MovieDetailPage({ params }: MovieDetailPageProps) {
   const media = movies.find((m) => m.id === params.id);
   if (!media) notFound();
 
