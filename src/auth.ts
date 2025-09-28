@@ -1,22 +1,37 @@
 
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { authConfig } from './auth.config';
  
-export const { auth, signIn, signOut } = NextAuth({
-  ...authConfig,
-  providers: [
-    Credentials({
-      async authorize(credentials) {
+const credentialsConfig = Credentials({
+    async authorize(credentials) {
         if (credentials.email === process.env.EMAIL_USER && credentials.password === process.env.EMAIL_PASS) {
-          // For now, we'll return a user object with just the email.
-          // In a real application, you might want to fetch more user data from a database.
-          return { email: credentials.email };
+            return { email: credentials.email };
         } else {
-          return null; // Return null if the credentials are not valid
+            return null;
         }
-      },
-    }),
-  ],
-  secret: process.env.JWT_SECRET, // Add the secret here
+    },
+});
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+    pages: {
+        signIn: '/login',
+    },
+    callbacks: {
+        authorized({ auth, request: { nextUrl } }) {
+            const isLoggedIn = !!auth?.user;
+            const isOnAdmin = nextUrl.pathname.startsWith('/admin');
+            if (isOnAdmin) {
+                if (isLoggedIn) return true;
+                return false; // Redirect unauthenticated users to login page
+            } else if (isLoggedIn) {
+                // Redirect logged in users to the admin dashboard if they try to access the login page
+                if (nextUrl.pathname.startsWith('/login')) {
+                    return Response.redirect(new URL('/admin/movies', nextUrl));
+                }
+            }
+            return true;
+        },
+    },
+    providers: [credentialsConfig],
+    secret: process.env.JWT_SECRET,
 });
