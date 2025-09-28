@@ -7,20 +7,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { VideoPlayer } from '@/components/video-player';
 
-type WatchPageProps = {
-  params: { id: string };
-};
-
-export function generateMetadata({ params }: WatchPageProps) {
-  const movie = movies.find((m) => m.id === params.id && m.mediaType === 'movie');
-  if (!movie) {
-    return { title: 'Video Not Found' };
-  }
-  return {
-    title: `Watching: ${movie.title} | CineStream`,
-  };
-}
-
 export default function WatchPage() {
   const params = useParams<{ id: string }>();
   const media = movies.find((m) => m.id === params.id);

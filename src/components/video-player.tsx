@@ -91,7 +91,7 @@ export function VideoPlayer({ src }: VideoPlayerProps) {
   };
 
   const saveProgress = React.useCallback(() => {
-    if (videoRef.current) {
+    if (videoRef.current && typeof window !== 'undefined' && window.localStorage) {
       localStorage.setItem(`video-progress-${src}`, videoRef.current.currentTime.toString());
     }
   }, [src]);
@@ -110,12 +110,14 @@ export function VideoPlayer({ src }: VideoPlayerProps) {
     
     const handleLoadedMetadata = () => {
       setDuration(video.duration);
-      const savedProgress = localStorage.getItem(`video-progress-${src}`);
-      if (savedProgress) {
-        const progressTime = parseFloat(savedProgress);
-        // Only seek if the saved time is meaningful (not at the very end)
-        if (progressTime > 0 && progressTime < video.duration - 5) {
-          video.currentTime = progressTime;
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const savedProgress = localStorage.getItem(`video-progress-${src}`);
+        if (savedProgress) {
+          const progressTime = parseFloat(savedProgress);
+          // Only seek if the saved time is meaningful (not at the very end)
+          if (progressTime > 0 && progressTime < video.duration - 5) {
+            video.currentTime = progressTime;
+          }
         }
       }
     };
@@ -201,12 +203,14 @@ export function VideoPlayer({ src }: VideoPlayerProps) {
     >
       <video
         ref={videoRef}
-        src={src}
         className="w-full h-full"
         onClick={handlePlayPause}
         onDoubleClick={handleFullscreen}
         autoPlay
-      />
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div 
         className={cn(
           "absolute bottom-0 left-0 right-0 z-[101] p-2 sm:p-4 bg-gradient-to-t from-black/70 to-transparent transition-opacity duration-300",
