@@ -3,6 +3,7 @@ import { Film } from 'lucide-react';
 import { SearchBar } from './search-bar';
 import { Button } from './ui/button';
 import { MobileNav } from './mobile-nav';
+import { Suspense } from 'react';
 
 export function Header() {
   return (
@@ -35,7 +36,9 @@ export function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2 sm:space-x-4">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <SearchBar />
+            <Suspense fallback={<div />}>
+              <SearchBar />
+            </Suspense>
           </div>
           <Button variant="destructive" size="sm">Sign In</Button>
         </div>
