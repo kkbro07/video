@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/header';
 import { Toaster } from '@/components/ui/toaster';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'CineStream',
@@ -24,7 +25,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
-        <Header />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         <main className="min-h-screen">
           {children}
         </main>
