@@ -6,34 +6,28 @@ import { ArrowLeft } from 'lucide-react';
 import { VideoPlayer } from '@/components/video-player';
 
 type WatchEpisodePageProps = {
-  params: { 
+  params: {
     id: string;
     season: string;
     episode: string;
   };
 };
 
-export function generateMetadata({ params }: WatchEpisodePageProps) {
+export async function generateMetadata({ params }: WatchEpisodePageProps) {
   const series = movies.find((m) => m.id === params.id && m.mediaType === 'series') as Series | undefined;
-  const season = series?.seasons.find(s => s.season === parseInt(params.season));
-  const episode = season?.episodes.find(e => e.episode === parseInt(params.episode));
+  const seasonObj = series?.seasons.find(s => s.season === parseInt(params.season));
+  const episodeObj = seasonObj?.episodes.find(e => e.episode === parseInt(params.episode));
 
-  if (!episode) {
-    return { title: 'Episode Not Found' };
-  }
-  return {
-    title: `Watching: ${series.title} S${params.season}E${params.episode} | CineStream`,
-  };
+  if (!episodeObj) return { title: 'Episode Not Found' };
+  return { title: `Watching: ${series!.title} S${params.season}E${params.episode} | CineStream` };
 }
 
-export default function WatchEpisodePage({ params }: WatchEpisodePageProps) {
+export default async function WatchEpisodePage({ params }: WatchEpisodePageProps) {
   const series = movies.find((m) => m.id === params.id && m.mediaType === 'series') as Series | undefined;
-  const season = series?.seasons.find(s => s.season === parseInt(params.season));
-  const episode = season?.episodes.find(e => e.episode === parseInt(params.episode));
+  const seasonObj = series?.seasons.find(s => s.season === parseInt(params.season));
+  const episodeObj = seasonObj?.episodes.find(e => e.episode === parseInt(params.episode));
 
-  if (!series || !season || !episode) {
-    notFound();
-  }
+  if (!series || !seasonObj || !episodeObj) notFound();
 
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
@@ -45,7 +39,7 @@ export default function WatchEpisodePage({ params }: WatchEpisodePageProps) {
           </Link>
         </Button>
       </div>
-      <VideoPlayer src={episode.videoUrl ?? '/video/video.mp4'} />
+      <VideoPlayer src={episodeObj.videoUrl ?? '/video/video.mp4'} />
     </div>
   );
 }

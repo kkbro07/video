@@ -6,35 +6,26 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { PlayCircle, Tv } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type MovieDetailPageProps = {
   params: { id: string };
 };
 
-export function generateMetadata({ params }: MovieDetailPageProps) {
+export async function generateMetadata({ params }: MovieDetailPageProps) {
   const media = movies.find((m) => m.id === params.id);
-  if (!media) {
-    return { title: 'Media Not Found' };
-  }
+  if (!media) return { title: 'Media Not Found' };
+
   return {
     title: `${media.title} | CineStream`,
     description: media.description,
   };
 }
 
-export default function MovieDetailPage({ params }: MovieDetailPageProps) {
+export default async function MovieDetailPage({ params }: MovieDetailPageProps) {
   const media = movies.find((m) => m.id === params.id);
+  if (!media) notFound();
 
-  if (!media) {
-    notFound();
-  }
-  
   const image = PlaceHolderImages.find(img => img.id === media.imageId);
   const imageUrl = image?.imageUrl ?? 'https://picsum.photos/seed/fallback/500/750';
   const imageHint = image?.imageHint ?? 'movie poster';
