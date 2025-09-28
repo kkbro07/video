@@ -1,21 +1,14 @@
 'use client'; // We need client-side to use params dynamically
 
-import { notFound } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import { movies, type Series } from '@/lib/movies';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { VideoPlayer } from '@/components/video-player';
 
-type WatchEpisodePageProps = {
-  params: { 
-    id: string;
-    season: string;
-    episode: string;
-  };
-};
-
-export default function WatchEpisodePage({ params }: WatchEpisodePageProps) {
+export default function WatchEpisodePage() {
+  const params = useParams<{ id: string; season: string; episode: string; }>();
   const series = movies.find((m) => m.id === params.id && m.mediaType === 'series') as Series | undefined;
   const season = series?.seasons.find(s => s.season === parseInt(params.season));
   const episode = season?.episodes.find(e => e.episode === parseInt(params.episode));

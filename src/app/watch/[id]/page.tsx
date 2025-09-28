@@ -1,4 +1,6 @@
-import { notFound } from 'next/navigation';
+'use client';
+
+import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import { movies } from '@/lib/movies';
 import { Button } from '@/components/ui/button';
@@ -19,7 +21,8 @@ export function generateMetadata({ params }: WatchPageProps) {
   };
 }
 
-export default function WatchPage({ params }: WatchPageProps) {
+export default function WatchPage() {
+  const params = useParams<{ id: string }>();
   const media = movies.find((m) => m.id === params.id);
 
   if (!media || media.mediaType !== 'movie') {
