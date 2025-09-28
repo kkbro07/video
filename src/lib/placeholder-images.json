@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "movie_poster_1",
+      "description": "Poster for a thrilling sci-fi adventure.",
+      "imageUrl": "https://images.unsplash.com/photo-1758850898768-90e8e5cbae30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2ktZmklMjBhZHZlbnR1cmV8ZW58MHx8fHwxNzU5MDU0NDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sci-fi adventure"
+    },
+    {
+      "id": "movie_poster_2",
+      "description": "Poster for a heartwarming romantic comedy.",
+      "imageUrl": "https://images.unsplash.com/photo-1696527014260-e8cc3017d0f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyb21hbmNlJTIwY29tZWR5fGVufDB8fHx8MTc1OTA3NzYzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "romance comedy"
+    },
+    {
+      "id": "movie_poster_3",
+      "description": "Poster for a gritty crime thriller.",
+      "imageUrl": "https://images.unsplash.com/photo-1633266841047-719b5f737149?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjcmltZSUyMHRocmlsbGVyfGVufDB8fHx8MTc1OTA3NzYzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crime thriller"
+    },
+    {
+      "id": "movie_poster_4",
+      "description": "Poster for an epic fantasy saga.",
+      "imageUrl": "https://images.unsplash.com/photo-1684940428813-53bd87bb7010?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmYW50YXN5JTIwc2FnYXxlbnwwfHx8fDE3NTkwNzc2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy saga"
+    },
+    {
+      "id": "movie_poster_5",
+      "description": "Poster for a mind-bending psychological drama.",
+      "imageUrl": "https://images.unsplash.com/photo-1680506370687-29079983a01f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwc3ljaG9sb2dpY2FsJTIwZHJhbWF8ZW58MHx8fHwxNzU5MDc3NjMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "psychological drama"
+    },
+    {
+      "id": "movie_poster_6",
+      "description": "Poster for a hilarious animated family film.",
+      "imageUrl": "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhbmltYXRlZCUyMGZpbG18ZW58MHx8fHwxNzU5MDc3NjMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "animated film"
+    },
+    {
+      "id": "movie_poster_7",
+      "description": "Poster for a historical war epic.",
+      "imageUrl": "https://images.unsplash.com/photo-1591880984062-fc951ff11522?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YXIlMjBlcGljfGVufDB8fHx8MTc1OTA1Mjg1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "war epic"
+    },
+    {
+      "id": "movie_poster_8",
+      "description": "Poster for a chilling horror movie.",
+      "imageUrl": "https://images.unsplash.com/photo-1553465528-5a213ccc0c7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxob3Jyb3IlMjBtb3ZpZXxlbnwwfHx8fDE3NTg5ODE0MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "horror movie"
+    },
+    {
+      "id": "movie_poster_9",
+      "description": "Poster for an action-packed superhero blockbuster.",
+      "imageUrl": "https://images.unsplash.com/photo-1683801692782-a8b77e294bc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdXBlcmhlcm8lMjBibG9ja2J1c3RlcnxlbnwwfHx8fDE3NTkwNzc2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero blockbuster"
+    },
+    {
+      "id": "movie_poster_10",
+      "description": "Poster for an inspiring sports biography.",
+      "imageUrl": "https://images.unsplash.com/photo-1663832476765-d683c3789ac0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzcG9ydHMlMjBiaW9ncmFwaHl8ZW58MHx8fHwxNzU5MDc3NjMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sports biography"
+    },
+    {
+      "id": "movie_poster_11",
+      "description": "Poster for a classic western film.",
+      "imageUrl": "https://images.unsplash.com/photo-1635774080336-931752d24ec3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3ZXN0ZXJuJTIwZmlsbXxlbnwwfHx8fDE3NTkwNzc2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "western film"
+    },
+    {
+      "id": "movie_poster_12",
+      "description": "Poster for a captivating documentary.",
+      "imageUrl": "https://images.unsplash.com/photo-1632670468093-6e7a07ae9848?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkb2N1bWVudGFyeSUyMGZpbG18ZW58MHx8fHwxNzU5MDU4NjUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "documentary film"
+    },
+    {
+      "id": "movie_poster_13",
+      "description": "Poster for a Japanese sci-fi thriller series.",
+      "imageUrl": "https://images.unsplash.com/photo-1698956483970-a47edef29331?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzY2ktZmklMjB0aHJpbGxlcnxlbnwwfHx8fDE3NTkwNTg1MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sci-fi thriller"
+    }
+  ]
+}
